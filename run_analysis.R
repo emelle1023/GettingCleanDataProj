@@ -211,9 +211,12 @@ library(dplyr)
 
 dataset2 <- dataset1
 newMeanVector <- names(dataset2)[5:length(dataset2)]
-newMeanVectorBySubject <- paste0(newMeanVector, "bysubject") 
+newMeanVector
+# newMeanVectorBySubject <- paste0(newMeanVector, "bysubject") 
 
-dataset3 <- dataset2 %>% group_by(subjectid) %>% summarise_each(funs(mean), 5:70)
+names(dataset2)
+
+dataset3 <- dataset2 %>% group_by(subjectid, labelid) %>% summarise_each(funs(mean), 5:70)
 
 # Write the final dataset to a text file
 setwd(paste(dirRoot, dirname, sep="/"))
