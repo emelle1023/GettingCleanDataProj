@@ -219,7 +219,7 @@ names(dataset2)
 dataset3 <- dataset2 %>% group_by(subjectid, labelid, label) %>% summarise_each(funs(mean), 5:70)
 
 # Write the final dataset to a text file
-setwd(paste(dirRoot, dirname, sep="/"))
+setwd(paste(dirRoot, sep="/"))
 write.table(dataset3, file = "dataset.txt", row.names = FALSE)
 
 
